@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <title>Page de connexion</title>
+    <style>
+        body {
+            display: grid;
+            place-items: center;
+            height: 100vh;
+        }
+        body {
+            background-color: gray;
+        }
+        .login-box {
+            width: 350px;
+            height: 300px;
+            padding: 40px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            justify-self: center;
+            align-self: center;
+            background-color: white;
+            
+        }
+
+        .login-box input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 3px solid black;
+            font-weight: bold;
+            font-size: 15px;
+            font-family: "Times New Roman", sans-serif;
+        }
+                /* Ajoutez ce code à votre fichier CSS */
+        .login-box input::placeholder {
+            font-weight: bold;
+        }
+        .login-box button {
+            width: 100%;
+            padding: 10px;
+            background-color: #ccc;
+            color: #000;
+            border: 0px  3px 3px 0px solid black;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        .login-box img {
+            display: block; 
+            margin: 0 auto;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <img class="logo" src="{% static 'images/icon/logo.png' %}"  alt="">
+        <input type="text" placeholder="Identifiant">
+        <input type="password" placeholder="Mot de passe">
+        <button><a href="{% url "dashboard:index" %}" style="color: inherit; text-decoration: none;">Connexion</a></button>
+    </div>
+</body>
+</html>
