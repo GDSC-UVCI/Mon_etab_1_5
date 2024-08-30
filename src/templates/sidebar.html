@@ -1,0 +1,51 @@
+
+{% load static %}
+<!-- MENU SIDEBAR-->
+<aside class="menu-sidebar d-none d-lg-block">
+    <div class="logo">
+        <a href="{% url "dashboard:index" %}">
+            <img src="{% static 'images/icon/logo.png' %}" alt="Cool Admin" />
+        </a>
+    </div>
+    <div class="menu-sidebar__content js-scrollbar1">
+        <nav class="navbar-sidebar">
+            <ul class="list-unstyled navbar__list">
+                
+                <li>
+                    <a href="{% url "dashboard:index" %}">
+                        <i class="fas fa-tachometer-alt"></i>Tableau de Bord</a>
+                </li>
+                <li>
+                    <a href="{% url "student:index" %}">
+                        <i class="fas fa-users"></i>Eleves</a>
+                </li>
+                <li>
+                    <a href="{% url "teacher:index" %}">
+                        <i class="fas fa-chalkboard-teacher"></i>Professeurs</a>
+                </li>
+                <li>
+                    <a href="{% url "user:index" %}">
+                        <i class="fas fa-user-alt"></i>Utilisateurs</a>
+                </li>
+                <li>
+                    <a href="{% url "report:index" %}">
+                        <i class="fas fa-file-alt"></i>Rapport</a>
+                </li>
+                <li>
+                    
+                </li>
+                
+                <li>
+                    <li>
+                        <li>
+                            <hr>
+                            <a href="{% url "user:login" %}">
+                                <i class="zmdi zmdi-power"></i>Déconnexion</a>
+                        </li>
+                    </li>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</aside>
+<!-- END MENU SIDEBAR-->

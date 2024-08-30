@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% block title %}
+    Mon Etab - Dashboard
+{% endblock title %}
+{% block menu %}
+    {% include "menu_mobile.html" %}
+{% endblock menu %}
+{% block content %}
+   <!-- PAGE CONTAINER-->
+<div class="page-container">
+
+    <!-- HEADER DESKTOP-->
+
+    <!-- MAIN CONTENT-->
+    <div class="main-content">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="overview-wrap">
+                            <h2 class="title-1">Tableau de bord</h2>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="row m-t-25">
+                    <div class="col-sm-6 col-lg-6">
+                        <div class="overview-item overview-item--c1">
+                            <div class="overview__inner">
+                                <div class="overview-box clearfix">
+                                    <div class="icon">
+                                        <i class="zmdi zmdi-accounts"></i>
+                                    </div>
+                                    <div class="text">
+                                        <h2>{{ students }}</h2>
+                                        <span>Nombre d'Eleves</span>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="col-sm-6 col-lg-6">
+                        <div class="overview-item overview-item--c2">
+                            <div class="overview__inner">
+                                <div class="overview-box clearfix">
+                                    <div class="icon">
+                                        <i class="zmdi zmdi-account-o"></i>
+                                    </div>
+                                    <div class="text">
+                                        <h2>{{ teachers }}</h2>
+                                        <span>Nombre de Professeurs</span>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="row m-t-25">
+                    <div class="col-sm-6 col-lg-6">
+                        <div class="overview-item overview-item--c1">
+                            <div class="overview__inner">
+                                <div class="overview-box clearfix">
+                                    <div class="icon">
+                                        <i class="zmdi zmdi-account-o"></i>
+                                    </div>
+                                    <div class="text">
+                                        <h2>{{ users }}</h2>
+                                        <span>Nombre d'utilisateurs</span>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-6">
+                        <div class="overview-item overview-item--c2">
+                            <h4 style="color:white;">Eleve par genre<h4>
+                            <div class="chart-note-wrap">
+                                
+                                <div class="chart-note mr-0 d-block">
+                                    <span class="dot dot--blue"></span>
+                                    <span>Homme</span>
+                                </div>
+                                <div class="chart-note mr-0 d-block">
+                                    <span class="dot dot--red"></span>
+                                    <span>Femme</span>
+                                </div>
+                            </div>
+                            <div class="percent-chart">
+                                <canvas id="percent-chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    </div>
+                </div>
+               
+               
+            </div>
+        </div>
+    </div>
+    <!-- END MAIN CONTENT-->
+    <!-- END PAGE CONTAINER-->
+</div>
+
+{% endblock content %}
