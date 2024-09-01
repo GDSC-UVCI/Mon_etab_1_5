@@ -1,12 +1,15 @@
 from .models import StudentModel
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import StudentAddForm
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def index(request):
     students = StudentModel.objects.all()
     context = {'students': students}
     return render(request, 'students.html', context)
 
+@login_required
 def add_student(request):
     context = {}
     if request.method == 'POST':
@@ -23,6 +26,7 @@ def add_student(request):
 
     return render(request, 'add_student.html', context)
 
+@login_required
 def update_student(request, student_id):
     student = get_object_or_404(StudentModel, id=student_id)
     context = {}
@@ -42,6 +46,7 @@ def update_student(request, student_id):
 
 
 
+@login_required
 def delete_student(request, student_id):
     student = get_object_or_404(StudentModel, id=student_id)
     student.delete()

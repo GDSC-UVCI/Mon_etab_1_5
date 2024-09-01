@@ -9,3 +9,7 @@ class UserAddForm(forms.ModelForm):
             'user_name': forms.TextInput(attrs={'class': 'form-control'}),
             'password': forms.PasswordInput(attrs={'class': 'form-control'}),
         }
+
+
+
+

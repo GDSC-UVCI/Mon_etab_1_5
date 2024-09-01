@@ -118,11 +118,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+# for my login always redirect to the index /
+LOGIN_URL = '/'
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'fr-fr'
 
 TIME_ZONE = 'UTC'
 

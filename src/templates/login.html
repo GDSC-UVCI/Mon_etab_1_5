@@ -2,68 +2,76 @@
 <html>
 <head>
     {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page de connexion</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
             display: grid;
             place-items: center;
             height: 100vh;
-        }
-        body {
             background-color: gray;
         }
         .login-box {
             width: 350px;
-            height: 300px;
             padding: 40px;
             border: 1px solid #ccc;
             border-radius: 20px;
-            justify-self: center;
-            align-self: center;
             background-color: white;
-            
         }
-
-        .login-box input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            box-sizing: border-box;
-            border: 3px solid black;
-            font-weight: bold;
-            font-size: 15px;
-            font-family: "Times New Roman", sans-serif;
-        }
-                /* Ajoutez ce code à votre fichier CSS */
-        .login-box input::placeholder {
-            font-weight: bold;
+        .login-box img {
+            display: block;
+            margin: 0 auto;
+            padding: 20px;
         }
         .login-box button {
             width: 100%;
             padding: 10px;
             background-color: #ccc;
             color: #000;
-            border: 0px  3px 3px 0px solid black;
+            border: 0px 3px 3px 0px solid black;
             box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
             border-radius: 5px;
             cursor: pointer;
             font-weight: bold;
             font-size: 15px;
         }
-
-        .login-box img {
-            display: block; 
-            margin: 0 auto;
-            padding: 20px;
-        }
     </style>
 </head>
 <body>
+    {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
     <div class="login-box">
-        <img class="logo" src="{% static 'images/icon/logo.png' %}"  alt="">
-        <input type="text" placeholder="Identifiant">
-        <input type="password" placeholder="Mot de passe">
-        <button><a href="{% url "dashboard:index" %}" style="color: inherit; text-decoration: none;">Connexion</a></button>
+        <img class="logo" src="{% static 'images/icon/logo.png' %}" alt="">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Identifiant" name="username">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="Mot de passe" name="password">
+            </div>
+            <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> Connexion</button>
+        </form>
+        <button class="btn btn-secondary mt-2"><a href="{% url 'user:register' %}" style="color: inherit; text-decoration: none;"><i class="fas fa-user-plus"></i> Inscription</a></button>
     </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </body>
 </html>

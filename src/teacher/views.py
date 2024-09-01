@@ -1,13 +1,17 @@
 from django.shortcuts import render, redirect
 from .models import TeacherModel
 from .forms import TeacherAddForm
+from django.contrib.auth.decorators import login_required
+
 # Create your views here.
+@login_required
 def index(request):
     teachers = TeacherModel.objects.all()
     total = teachers.count()
     context = {'teachers': teachers, 'total': total}
     return render(request, 'teachers.html', context)
 
+@login_required
 def add_teacher(request):
     context = {}
     if request.method == 'POST':
@@ -25,6 +29,7 @@ def add_teacher(request):
 
     return render(request, 'add_teacher.html', context)
 
+@login_required
 def update_teacher(request, teacher_id):
     teacher = TeacherModel.objects.get(id=teacher_id)
     context = {}
@@ -43,6 +48,7 @@ def update_teacher(request, teacher_id):
     return render(request, 'add_teacher.html', context)
 
 
+@login_required
 def delete_teacher(request, teacher_id):
     teacher = TeacherModel.objects.get(id=teacher_id)
     teacher.delete()
